@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 09/03/2024 às 19:21
+-- Tempo de geração: 10/03/2024 às 20:15
 -- Versão do servidor: 8.2.0
 -- Versão do PHP: 8.2.13
 
@@ -29,11 +29,23 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
-  `id_usuário` int NOT NULL AUTO_INCREMENT,
+  `id_usuario` int NOT NULL AUTO_INCREMENT,
   `nome_usuario` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_usuario` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_usuário`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `email_usuario`) VALUES
+(8, 'AM', 'amanda@gmail.com'),
+(9, 'aaaaa', 'aaaa@gmail.com'),
+(10, 'aaa', 'aaaa@gmail.com'),
+(11, 'qqq', 'aaaa@gmail.com'),
+(12, 'aaaaaaaaaa', 'aaaa@gmail.com'),
+(13, 'amaa', 'aaaa@gmail.com');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

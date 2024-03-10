@@ -8,6 +8,8 @@ include_once './conexao.php'; // Inclui o arquivo de conexão com o banco de dad
         <title>Cadastrar</title>
     </head>
     <body>
+        <a href="registro_cadastrar.php">Listar</a><br>
+        <a href="cadastrar.php">Cadastrar</a><br>
         <h1>Cadastrar</h1>
         <?php
         //Receber os dados do formulário
