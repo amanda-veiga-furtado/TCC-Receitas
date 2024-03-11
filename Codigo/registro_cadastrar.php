@@ -45,7 +45,11 @@ include_once './conexao.php'; // Inclui o arquivo de conexão com o banco de dad
                         //sem extract()
                         //echo "ID: " . $row_usuario ['id_usuario'] . "<br>";
                         echo "Nome: $nome_usuario <br>";
-                        echo "Email: $email_usuario <br>";
+                        echo "Email: $email_usuario <br><br>";
+                        echo "<a href='registro_usuario.php?id_usuario=$id_usuario'>Visualizar</a><br> ";
+                        echo "<a href='editar_usuario.php?id_usuario=$id_usuario'>Editar</a><br> ";
+                        echo "<a href='Deletar_usuario.php?id_usuario=$id_usuario'>Deletar</a><br> ";
+
                         echo "<hr>"; //linha divisoria
                 }
 
