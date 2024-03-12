@@ -31,8 +31,8 @@ if (($result_usuario) AND ($result_usuario->rowCount() != 0)) {
         <title>Editar</title>
     </head>
     <body>
-        <a href="registro_usuario.php">Listar</a><br>
         <a href="cadastrar.php">Cadastrar</a><br>
+        <a href="registro_usuario.php">Listar</a><br>
 
         <h1>Editar</h1>
 

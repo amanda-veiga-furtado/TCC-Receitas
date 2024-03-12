@@ -17,8 +17,8 @@ if (empty($id_usuario)) {
     <title>Visualizar Usuário</title>
 </head>
 <body>
-    <a href="registro_cadastrar.php">Listar</a><br>
     <a href="cadastrar.php">Cadastrar</a><br>
+    <a href="registro_cadastrar.php">Listar</a><br>
 
     <h1>Visualizar Usuário</h1>
 

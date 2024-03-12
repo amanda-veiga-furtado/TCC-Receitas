@@ -8,8 +8,9 @@ include_once './conexao.php'; // Inclui o arquivo de conexão com o banco de dad
         <title>Lista de Cadastrados</title>
     </head>
     <body>
-        <a href="registro_cadastrar.php">Listar</a><br>
         <a href="cadastrar.php">Cadastrar</a><br>
+        <a href="registro_cadastrar.php">Listar</a><br>
+
         <h1>Lista de Cadastrados</h1>
 
         <?php
@@ -48,7 +49,7 @@ include_once './conexao.php'; // Inclui o arquivo de conexão com o banco de dad
                         echo "Email: $email_usuario <br><br>";
                         echo "<a href='registro_usuario.php?id_usuario=$id_usuario'>Visualizar</a><br> ";
                         echo "<a href='editar_usuario.php?id_usuario=$id_usuario'>Editar</a><br> ";
-                        echo "<a href='Deletar_usuario.php?id_usuario=$id_usuario'>Deletar</a><br> ";
+                        echo "<a href='deletar_usuario.php?id_usuario=$id_usuario'>Deletar</a><br> ";
 
                         echo "<hr>"; //linha divisoria
                 }
