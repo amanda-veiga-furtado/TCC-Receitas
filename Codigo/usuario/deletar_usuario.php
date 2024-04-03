@@ -2,7 +2,8 @@
 
     session_start(); // Inicia a sessão
     ob_start(); // Inicia o buffer de saída
-    include_once 'C:\wamp64\www\TCC\tcc_receitas\conexao.php'; // Inclui o arquivo de conexão com o banco de dados.
+
+    include_once '..\conexao.php';
 
     $id_usuario = filter_input(INPUT_GET, "id_usuario", FILTER_SANITIZE_NUMBER_INT); // Obtém o ID do usuário da URL e filtra como um número inteiro
     var_dump($id_usuario);

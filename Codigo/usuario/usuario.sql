@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 18/03/2024 às 17:03
+-- Tempo de geração: 03/04/2024 às 02:06
 -- Versão do servidor: 8.2.0
 -- Versão do PHP: 8.2.13
 
@@ -33,15 +33,17 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `nome_usuario` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_usuario` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
   `senha_usuario` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `recuperar_senha` varchar(220) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `email_usuario`, `senha_usuario`) VALUES
-(1, 'Amanda', 'usuario@usuario.com', '$2y$10$lYQc3H82b5xv7gRvpvxbbOn6BVGIywykYiAGDXMbKq1T445r0snOy');
+INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `email_usuario`, `senha_usuario`, `recuperar_senha`) VALUES
+(67, 'Amanda', 'usuario@usuario.com', '$2y$10$h50OXWS/cBMwPAkt00aSxeORVCAG3owiZ1.5gcgWlileHUzaXViBK', NULL),
+(68, 'Teste', 'teste@teste.com', '$2y$10$Tt3a70kS4sBLD4izUOK4R.9B6RHwEJYv2WOybUJUa5aPdbHSYQwQK', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

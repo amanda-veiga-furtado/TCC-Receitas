@@ -1,19 +1,29 @@
 <?php
-    include_once 'C:\wamp64\www\TCC\tcc_receitas\conexao.php'; // Inclui o arquivo de conexão com o banco de dados.
-?>
+    include_once '..\menu.php'; 
+    include_once '..\conexao.php';?>
 <!DOCTYPE html>
+
 <html>
     <head>
-        <meta charset="UTF-8">
+
         <title>Lista de Cadastrados</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="../css/style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+
     </head>
     <body>
+        <div class="card">
         <br><br>
-        <a href="cadastrar.php">Cadastrar</a><br>
-        <a href="registro_cadastrar.php">Listar</a><br>
-
-        <h1>Lista de Cadastrados</h1>
-
+        <h1>LISTA DE CADASTRADOS</h1>
+        
         <?php
 
             //paginação
@@ -48,11 +58,14 @@
                         //echo "ID: " . $row_usuario ['id_usuario'] . "<br>";
                         echo "Nome: $nome_usuario <br>";
                         echo "Email: $email_usuario <br><br>";
-                        echo "<a href='registro_usuario.php?id_usuario=$id_usuario'>Visualizar</a><br> ";
-                        echo "<a href='editar_usuario.php?id_usuario=$id_usuario'>Editar</a><br> ";
-                        echo "<a href='deletar_usuario.php?id_usuario=$id_usuario'>Deletar</a><br> ";
+                        echo "<a href='registro_usuario.php?id_usuario=$id_usuario'>Visualizar | </a> ";
+                        echo "<a href='editar_usuario.php?id_usuario=$id_usuario'>Editar | </a>";
+                        echo "<a href='deletar_usuario.php?id_usuario=$id_usuario'>Deletar</a><br><br> ";
 
-                        echo "<hr>"; //linha divisoria
+
+
+
+                        echo "<hr><br>"; //linha divisoria
                 }
 
                 //Contar a quantidade de registros no BD
@@ -89,5 +102,6 @@
                 echo "<p style='color: #f00;'>Erro: Nenhum usuario encontrado!</p>";
             }
         ?>
+        </div>
     </body>
 </html>
