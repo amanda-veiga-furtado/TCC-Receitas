@@ -2,6 +2,8 @@
     include_once '../menu.php'; 
     include_once '../conexao.php'; 
 
+    //Função Referente a quantidadePorcao --------------------------------------------------------------------------------
+    
     function converteFracao($numero) {
         // Verifica se o número é quebrado (terminado em .5)
         if ($numero != floor($numero)) {
@@ -15,6 +17,8 @@
         }
         return $numero; // Retorna o número normal se não for quebrado
     }
+
+    //--------------------------------------------------------------------------------------------------------------------
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT); // Recebe os dados do formulário
@@ -32,8 +36,22 @@
                 $tempo_preparo = ($dados['horas'] == 0 ? '' : $dados['horas'] . " $horas_texto") . ($dados['horas'] == 0 || $dados['minutos'] == 0 ? '' : ' e ') . ($dados['minutos'] == 0 ? '' : $dados['minutos'] . " $minutos_texto");
                 $tempo_preparo = str_replace(':', ' e ', $tempo_preparo); // Substituir ":" por "e"
             }
-            
-            $query_receita = "INSERT INTO receita (nome_receita, numeroPorcoes_receita, modoPreparo_receita, tempoPreparo_receita) VALUES ('" . $dados['nome_receita'] . "','" . $numero_porcoes . "','" . $dados['modoPreparo_receita'] . "','" . $tempo_preparo . "')";
+
+            // Verifica se foi feito upload de uma imagem
+            if (isset($_FILES['imagem_receita']) && $_FILES['imagem_receita']['error'] === UPLOAD_ERR_OK) {
+                $imagem_temp = $_FILES['imagem_receita']['tmp_name'];
+                $nome_imagem = $_FILES['imagem_receita']['name'];
+                $caminho_imagem = '../css/img/receita/' . $nome_imagem;
+
+                // Move o arquivo temporário para o diretório desejado
+                move_uploaded_file($imagem_temp, $caminho_imagem);
+            } else {
+                // Se nenhum upload foi feito, defina o caminho da imagem como vazio
+                $caminho_imagem = '';
+            }
+
+            // Insere os dados no banco de dados
+            $query_receita = "INSERT INTO receita (nome_receita, numeroPorcoes_receita, modoPreparo_receita, tempoPreparo_receita, imagem_receita) VALUES ('" . $dados['nome_receita'] . "','" . $numero_porcoes . "','" . $dados['modoPreparo_receita'] . "','" . $tempo_preparo . "', '" . $caminho_imagem . "')";
 
             $cad_receita = $conn->prepare($query_receita);
             $cad_receita->execute();
@@ -57,7 +75,7 @@
     <div class="card">
         <h1>COMPARTILHE SUA RECEITA</h1>
 
-        <form name="cad-receita" method="POST" action="">
+        <form name="cad-receita" method="POST" action="" enctype="multipart/form-data">
 
             <label>Nome da Receita: </label>
             <input type="text" name="nome_receita" id="nome_receita" placeholder="Bolo de Cenoura com Cobertura de Chocolate Amargo"><br><br>
@@ -71,20 +89,23 @@
                 <option value="prato(s)">prato(s)</option>
                 <option value="fatia(s)">fatia(s)</option>
                 <option value="pessoa(s)">pessoa(s)</option>
-
             </select><br><br>
             
             <label>Tempo Total de Preparo:<br><br></label>
             <input type="number" name="horas" id="horas" min="0" value="0"> Hora(s)  :  
             <input type="number" name="minutos" id="minutos" min="0" value="0"> Minuto(s)<br><br>
 
+            <label>Imagem da Receita:<br><br></label>
+            <input type="file" name="imagem_receita" id="imagem_receita"><br><br>
+            
+            <label>Ingrediente:<br><br></label>
+            <br><br>
+        
             <!-- Modo Preparo -->
-
-                <?php
-                    // Carrega o conteúdo do arquivo de texto
-                    $placeholder_text = file_get_contents('receita.txt');
-                ?>
-
+            <?php
+                // Carrega o conteúdo do arquivo de texto
+                $placeholder_text = file_get_contents('receita.txt');
+            ?>
             <label>Modo de Preparo:<br><br></label>
             <textarea name="modoPreparo_receita" id="modoPreparo_receita" placeholder="<?php echo $placeholder_text; ?> "rows="20" cols="65"></textarea>
             <br><br>
@@ -95,3 +116,4 @@
     </div>
 </body>
 </html>
+

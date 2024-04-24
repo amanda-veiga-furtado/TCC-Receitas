@@ -23,7 +23,7 @@
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
             
             if (!empty($dados['SendSugerir'])) {
-                var_dump($dados);
+                // var_dump($dados);
 
                 $query_sugerir = "INSERT INTO sugestao (nome_sugestao, categoria_sugestao) VALUES ('" . $dados['nome_sugestao'] . "','" . $dados['categoria_sugestao'] . "')";
                 // -- VALUES (:nome_sugestao, :categoria_sugestao)";
@@ -33,7 +33,7 @@
         
         ?>
         <form name="send-sugerir" method="POST" action="">
-            <label>Sugestão: </label>
+            <!-- <label>Sugestão: </label> -->
             <input type="text" name="nome_sugestao" id="ame="nome_sugestao" placeholder="sugestao">
 
             <select name="categoria_sugestao" id="categoria_sugestao">
