@@ -26,27 +26,26 @@
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
             
             if (!empty($dados['SendSugerir'])) {
-                // var_dump($dados);
-
-                $query_sugerir = "INSERT INTO sugestao (nome_sugestao, categoria_sugestao) VALUES ('" . $dados['nome_sugestao'] . "','" . $dados['categoria_sugestao'] . "')";
-                // -- VALUES (:nome_sugestao, :categoria_sugestao)";
-                $send_sugerir = $conn->prepare($query_sugerir); // Prepara a query para execução.
-                $send_sugerir->execute();
+                if (empty($dados['nome_sugestao'])) {
+                    echo "<p style='color: red;'>O campo de sugestão não pode ser vazio.</p>";
+                } else {
+                    $query_sugerir = "INSERT INTO sugestao (nome_sugestao, categoria_sugestao) VALUES ('" . $dados['nome_sugestao'] . "','" . $dados['categoria_sugestao'] . "')";
+                    $send_sugerir = $conn->prepare($query_sugerir); 
+                    $send_sugerir->execute();
+                    echo "<p style='color: green;'>Sugestão enviada com sucesso!</p>";
+                }
             }
         
         ?>
         <form name="send-sugerir" method="POST" action="">
-            <!-- <label>Sugestão: </label> -->
-            <input type="text" name="nome_sugestao" id="ame="nome_sugestao" placeholder="sugestao">
-
+            <input type="text" name="nome_sugestao" id="nome_sugestao" placeholder="Sugestão">
             <select name="categoria_sugestao" id="categoria_sugestao">
-                <option value="Ingrediente">                Ingrediente</option>
-                <option value="Categoria de Ingrediente">   Categoria de Ingrediente</option>
-                <option value="Categoria Culinaria">        Categoria Culinaria</option>
+                <option value="Ingrediente">Ingrediente</option>
+                <option value="Categoria de Ingrediente">Categoria de Ingrediente</option>
+                <option value="Categoria Culinaria">Categoria Culinaria</option>
             </select>
-
             <input type="submit" value="Sugerir" name="SendSugerir" class="botao">
-    </form>
+        </form>
     </div>
 </body>
 </html>
