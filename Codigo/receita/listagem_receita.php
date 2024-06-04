@@ -1,14 +1,13 @@
 <?php
-    session_start();
-    ob_start();
-    
     include_once '..\menu.php'; 
     include_once '..\conexao.php';
+
+    session_start();
+    ob_start();
 ?>
 
 <!DOCTYPE html>
-
-    <html>
+    <html lang="pt-br">
     <head>
 
         <title>Lista de Receitas</title>
@@ -28,7 +27,7 @@
     <body>
         <div class="card">
         <h1>LISTA DE RECEITAS</h1>
-       
+      
         <?php
 
             //paginação
