@@ -3,73 +3,63 @@
     padding: 0;
 }
 
-.header {
-    background-color: #5B4476;
-    height: 65px;
-    text-align: center;
-    /* padding-top: 15px; */
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #5B4476;
-            /* Adiciona overflow: hidden para evitar que elementos flutuantes causem problemas */
-        }
-        li {
-            float: left;
-        }
-    
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 18px 20px;
-            text-decoration: none;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-            /* Remova a margem do body para eliminar o espaço branco */
-        body {
-            margin: 0;
-        }
-    
-        /* Remova a margem do ul para eliminar o espaço branco acima da barra de navegação */
-        ul {
-            margin-top: 0;
-        }
-    
-        /* Remova o espaço ao redor do ul para eliminar o espaço branco ao redor da barra de navegação */
-        ul {
-            padding: 0;
-        }
-    
-        /* Remove o espaço entre os itens da lista */
-        ul li {
-            margin: 0;
-        }
-    
-        /* Remove a margem dos links */
-        li a {
-            margin: 0;
-        }
-}
-
 body {
     background-color: #f0f0f0;
     font-family: 'Lato', sans-serif;
 }
 
-.banner {
-    background-image: url(../css//imagens/imagem.png);
-    background-position: center;
-    background-size: cover;
-    height: 300px;
+.header { /* Menu */
+    background-color: #5B4476;;
+    height: 65px;
+    text-align: center;
+    /* padding-top: 15px; */
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #5B4476;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 18px 20px;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body { /* Remova a margem do body para eliminar o espaço branco */
+        margin: 0;
+    }
+                
+    ul { /* Remova a margem do ul para eliminar o espaço branco acima da barra de navegação */
+        margin-top: 0;
+    }
+                
+
+    ul { /* Remova o espaço ao redor do ul para eliminar o espaço branco ao redor da barra de navegação */
+        padding: 0;
+    }
+                
+    
+    ul li { /* Remove o espaço entre os itens da lista */
+        margin: 0;
+    }
+                
+    li a { /* Remove a margem dos links */
+            margin: 0;
+    }
 }
 
-.footer {
-    background-color: #5B4476;
+.footer { /* Rodapé */
+    background-color: #ff6a28;
     height: 50px;
     color: white;
     text-align: center;
@@ -84,15 +74,14 @@ body {
     margin: 50px auto;
     border-radius: 5px;
     font-weight: 300;
-
 }
 
 h1 {
     text-align: center;
-    font-weight: 400;
-    font-size: 20px;
+    font-weight: 585; /*400*/
+    font-size: 25px;
     color: #5B4476;
-    margin-bottom: 20px;
+    margin-bottom: 25px; /*20*/
 }
 
 li {
@@ -104,26 +93,169 @@ ul {
     margin-bottom: 40px;
 }
 
-.botao {
-    margin-top: 50px;
-    text-decoration: none;
-    background-color: #5B4476;
-    color: white;
-    padding: 15px;
-    font-weight: 400;
-    font-size: 20px;
-    border-radius: 30px;
-}
+/* Botão */
+    .botao {
+        margin-top: 50px;
+        text-decoration: none;
+        background-color: #5B4476;
+        color: white;
+        padding: 15px;
+        font-weight: 400;
+        font-size: 20px;
+        border-radius: 30px;
+        border: none;
+        box-shadow: none;
+        outline: none;
+        width: 120px; /* Definindo a largura */
+        display: inline-block; /* Garante que a largura seja respeitada */
+        text-align: center; /* Centraliza o texto dentro do botão */
+    }
 
-.botao:hover {
-    background-color: #5B4476;
-}
+        .botao:hover,
+        .botao:focus { 
+            background-color: #5B4476;
+        }
 
-.titulo-receita {
+        .botao:focus-visible {
+            outline: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center; /* centraliza os itens horizontalmente */
+            align-items: center; /* centraliza os itens verticalmente */
+          }
+          
+        .box {
+            margin: 0 40px; /* adiciona um espaçamento entre os botões */
+        
+            /* height: 100px; altura desejada */
+            /* background-color: lightgray; cor de fundo desejada */
+            /* border: 1px solid black; borda opcional */
+        }
+
+/* Receita */
+
+    /* listagem_receita.php */
+        .lista-receita-imagem {
+            /* background-position: center; */
+            justify-content: center; /* centraliza os itens horizontalmente */
+            align-items: center; /* centraliza os itens verticalmente */
+            /* background-size: cover; */
+            width: 100%;
+        }
+
+    /* registro_receita.php */
+        .banner {
+            /* background-image: url(../css/img/receita/imagem.png); */
+            background-position: center;
+            background-size: cover;
+            height: 300px;
+        }
+
+        .titulo-receita {
+            font-weight: 700;
+            font-size: 30px;
+            text-transform: capitalize;
+            margin-top: 30px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.link-footer {
     font-weight: 700;
-    font-size: 30px;
-    margin-top: 30px;
+    text-decoration: none;
+    color: white;
 }
-
 
 /* text-decoration: none; */
+
+
+  
+
+
+  
+
+
+
+/* Comentarios */
+
+
+/* -------------------------- */
+/* Criar as variaveis com as cores */
+:root {
+    --amarelo: #ffcc00;
+    --cinza: #cccccc;
+}
+
+/* Não exibir o input radio */
+.estrelas input[type=radio] {
+    display: none;
+}
+
+/* Criar as estrelas preenchidas de amarelo*/
+.estrelas label i.opcao.fa:before {
+    content: '\f005';
+    color: var(--amarelo);
+}
+
+/* Atribuir o cinza nas estrelas, quando selecionar a estrela retirar o cinza*/
+.estrelas input[type=radio]:checked~label i.fa:before {
+    color: var(--cinza);
+}
+
+/* Personalizar a estrela preenchida */
+.estrela-preenchida {
+    color: var(--amarelo);
+}
+
+/* Personalizar a estrela vazia */
+.estrela-vazia{
+    color: var(--cinza);
+}
+
+
+/* ------------------------------------------------------------- Home ------------------------------------------------------------- */
+
+.container-home {
+    display: flex;
+    flex: 1;
+}
+
+.adicionar_ingrediente {
+    flex: 5;
+    background-color: lightblue;
+}
+
+.cesta {
+    flex: 2;
+    background-color: lightgreen;
+}
+
+.lista-receita-imagem2 {
+    height: 100px;
+}
